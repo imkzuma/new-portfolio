@@ -14,7 +14,7 @@ const FooterLink = ({ children, href }: { children: ReactNode, href: string }) =
       cursor={'pointer'}
       fontSize={{ base: 'md', lg: "lg" }}
       _hover={{
-        color: useColorModeValue('blue.500', 'blue.500'),
+        color: useColorModeValue('teal.500', 'teal.300'),
         transition: 'all 0.3s ease'
       }}
       transition={'all 0.3s ease'}
@@ -27,8 +27,8 @@ const FooterLink = ({ children, href }: { children: ReactNode, href: string }) =
 export default function ContentFooter() {
   return (
     <CustomContainer>
-      <Stack justify={'center'} align={'center'} spacing={8} pt={14}>
-        <Flex alignItems={'center'} gap={2} fontWeight={'semibold'} color={'blue.400'}>
+      <Stack as='section' justify={'center'} align={'center'} spacing={8} pt={14}>
+        <Flex alignItems={'center'} gap={2} fontWeight={'semibold'} color={'teal.500'}>
           <LogoFull />
         </Flex>
 
@@ -40,14 +40,8 @@ export default function ContentFooter() {
           ))}
         </Flex>
 
-        <Flex gap={7}>
-          <Button variant={'outline'} >
-            Twitter
-          </Button>
-        </Flex>
-
         <Stack w={'full'} align={'center'} py={5} spacing={6}>
-          <Divider borderColor={'blue.300'} />
+          <Divider borderColor={'teal.300'} />
           <Text color={useColorModeValue('gray.500', 'gray.500')}>
             &copy; Copyright 2023. All right reserved.
           </Text>

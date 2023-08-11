@@ -44,7 +44,7 @@ export default function Navbar() {
           align={'center'}
           h={20}
         >
-          <Flex as="ul"
+          <Flex as="header"
             align={'center'}
             gap={4}
           >
@@ -57,7 +57,7 @@ export default function Navbar() {
             <LogoFull />
           </Flex>
 
-          <Flex gap={2}>
+          <Flex as="ul" gap={2}>
             {links.map((link, index) => {
               return (
                 <Text key={index}

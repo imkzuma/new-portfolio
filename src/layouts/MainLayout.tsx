@@ -8,7 +8,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
     <>
       <Navbar />
 
-      <Box w={'full'} minH={'100vh'}>
+      <Box as="main" w={'full'} minH={'100vh'}>
         {children}
       </Box>
 

@@ -2,7 +2,7 @@ import { Text, useColorModeValue } from "@chakra-ui/react"
 
 export const LogoFull = () => {
   return (
-    <Text as="header"
+    <Text as="p"
       fontWeight={'bold'}
       fontSize={'2xl'}
       color={useColorModeValue('gray.700', 'white')}
