@@ -1,5 +1,6 @@
 import { CustomContainer } from "@/components/custom";
 import { Box, Button, Flex, Heading, Image, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 export default function LandingHero() {
   return (
@@ -12,7 +13,9 @@ export default function LandingHero() {
         py={{ base: 16, md: 0 }}
       >
         <Stack align={'center'} spacing={{ base: '45px', lg: '65px' }}>
-          <Box
+          <Box as={motion.div}
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.3, type: "ease" } }}
             maxW={'270px'}
             maxH={'270px'}
           >
@@ -25,8 +28,14 @@ export default function LandingHero() {
               rounded={'full'}
             />
           </Box>
-          <Stack spacing={'50px'} align={'center'} w={'full'}>
-            <Stack
+          <Stack
+            spacing={'50px'}
+            align={'center'}
+            w={'full'}
+          >
+            <Stack as={motion.div}
+              initial={{ opacity: 0, y: -100 }}
+              whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, type: "ease" } }}
               spacing={2}
               w={{ base: 'full', lg: '1140px' }}
               align={'center'}
@@ -45,11 +54,16 @@ export default function LandingHero() {
                 lineHeight={'1.8'}
               >
                 Experienced Frontend Web Developer adept in Node.js, React.js, Next.js, and PHP.
-                Proficient at crafting attractive and responsive UIs, skilled in API integration,
+                Proficient at crafting attractive and responsive UI, skilled in API integration,
                 and a strong team collaborator.
               </Text>
             </Stack>
-            <Flex gap={{ base: 2, lg: 1 }}>
+            <Flex as={motion.div}
+              listStyleType={'none'}
+              initial={{ opacity: 0, y: -100 }}
+              whileInView={{ opacity: 1, y: 0, transition: { duration: 0.7, type: "ease" } }}
+              gap={{ base: 2, lg: 1 }}
+            >
               <Button
                 colorScheme="teal"
                 size={{ base: 'lg', md: 'lg' }}

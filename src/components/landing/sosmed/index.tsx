@@ -1,5 +1,7 @@
+import { ChildListAnimate, ParentListAnimate } from "@/components/animation/ListTypeAnimate";
 import { CustomContainer } from "@/components/custom";
 import { Button, Container, Flex, Grid, GridItem, Heading, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 const sosmeds = [
   { id: 1, name: "Github", href: "https://github.com/imkzuma", color: 'gray' },
@@ -25,7 +27,9 @@ export default function SectionSosialMedia() {
         >
           <Stack align={'center'} spacing={20}>
             <Stack align={'center'} spacing={{ base: '20px', md: '40px' }}>
-              <Stack
+              <Stack as={motion.div}
+                initial={{ opacity: 0, y: -70 }}
+                whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, type: "ease" } }}
                 spacing={2}
                 w={{ base: 'full', lg: '1000px' }}
                 align={'center'}
@@ -48,16 +52,24 @@ export default function SectionSosialMedia() {
               </Stack>
             </Stack>
 
-            <Grid
+            <Grid as={motion.ul}
+              variants={ParentListAnimate}
+              initial="hidden"
+              whileInView="show"
               gridTemplateColumns={'repeat(4, 1fr)'}
               gap={{ base: 5, lg: 8 }}
               w={'full'}
             >
               {sosmeds.map((sosmed, index) => (
                 <GridItem key={index}
+                  as={motion.li}
+                  listStyleType={'none'}
+                  variants={ChildListAnimate}
                   colSpan={{ base: 2, lg: 1 }}
                 >
-                  <Button
+                  <Button as="a"
+                    href={sosmed.href}
+                    target="_blank"
                     colorScheme={'teal'}
                     w={'full'}
                     h={16}

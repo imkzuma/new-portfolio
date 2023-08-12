@@ -5,7 +5,6 @@ import SectionTechnology from '@/components/landing/technology';
 import SectionProjects from '@/components/landing/projects';
 import SectionJourney from '@/components/landing/journey';
 import SectionHire from '@/components/landing/hire';
-import SectionSosialMedia from '@/components/landing/sosmed';
 
 export default function Home() {
   return (

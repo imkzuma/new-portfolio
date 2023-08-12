@@ -1,5 +1,6 @@
 import { CustomContainer } from "@/components/custom";
 import { Button, Container, Flex, Heading, Image, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 export default function SectionHire() {
   return (
@@ -20,7 +21,9 @@ export default function SectionHire() {
         >
           <Stack align={'center'} spacing={32}>
             <Stack align={'center'} spacing={{ base: '20px', md: '40px' }}>
-              <Stack
+              <Stack as={motion.div}
+                initial={{ opacity: 0, y: -70 }}
+                whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, type: "ease" } }}
                 spacing={2}
                 w={{ base: 'full', lg: '900px' }}
                 align={'center'}

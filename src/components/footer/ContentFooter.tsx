@@ -25,6 +25,9 @@ const FooterLink = ({ children, href }: { children: ReactNode, href: string }) =
 }
 
 export default function ContentFooter() {
+  const date = new Date();
+  const year = date.getFullYear();
+
   return (
     <CustomContainer>
       <Stack as='section' justify={'center'} align={'center'} spacing={8} pt={14}>
@@ -43,7 +46,7 @@ export default function ContentFooter() {
         <Stack w={'full'} align={'center'} py={5} spacing={6}>
           <Divider borderColor={'teal.300'} />
           <Text color={useColorModeValue('gray.500', 'gray.500')}>
-            &copy; Copyright 2023. All right reserved.
+            &copy; Copyright {year}. All right reserved.
           </Text>
         </Stack>
       </Stack>

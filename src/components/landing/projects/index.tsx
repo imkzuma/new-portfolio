@@ -1,5 +1,7 @@
+import { ChildListAnimate, ParentListAnimate } from "@/components/animation/ListTypeAnimate";
 import { CustomContainer } from "@/components/custom";
 import { Button, Card, CardBody, Container, Flex, Grid, GridItem, Heading, Image, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -62,7 +64,9 @@ export default function SectionProjects() {
         >
           <Stack align={'center'} spacing={32}>
             <Stack align={'center'} spacing={{ base: '20px', md: '40px' }}>
-              <Stack
+              <Stack as={motion.div}
+                initial={{ opacity: 0, y: -100 }}
+                whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, type: "ease" } }}
                 spacing={2}
                 w={{ base: 'full', lg: '900px' }}
                 align={'center'}
@@ -83,7 +87,9 @@ export default function SectionProjects() {
                   My Projects look as good as the others! Check them out.
                 </Text>
               </Stack>
-              <Button
+              <Button as={motion.div}
+                initial={{ opacity: 0, y: -70 }}
+                whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, type: "ease" } }}
                 colorScheme="teal"
                 h={{ base: '60px', md: '70px' }}
                 w={{ base: 'fit-content', md: '318px' }}
@@ -95,12 +101,18 @@ export default function SectionProjects() {
               </Button>
             </Stack>
 
-            <Grid
+            <Grid as={motion.ul}
+              variants={ParentListAnimate}
+              initial="hidden"
+              whileInView="show"
               gridTemplateColumns={'repeat(2, 1fr)'}
               gap={8}
             >
               {projects.map((project, index) => (
                 <GridItem key={index}
+                  as={motion.li}
+                  variants={ChildListAnimate}
+                  listStyleType={'none'}
                   colSpan={{ base: 2, lg: 1 }}
                 >
                   <Card

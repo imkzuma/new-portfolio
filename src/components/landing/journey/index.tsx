@@ -1,5 +1,7 @@
+import { ChildListAnimate, ParentListAnimate } from "@/components/animation/ListTypeAnimate";
 import { CustomContainer } from "@/components/custom";
 import { Button, Container, Flex, Grid, GridItem, Heading, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 const journey = [
   { id: 1, value: '03', name: 'Years of Experience' },
@@ -24,7 +26,9 @@ export default function SectionJourney() {
           py={{ base: 20 }}
         >
           <Stack align={'center'} spacing={24} w={'full'}>
-            <Stack
+            <Stack as={motion.div}
+              initial={{ opacity: 0, y: -70 }}
+              whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, type: "ease" } }}
               spacing={2}
               w={{ base: 'full', lg: '1426px' }}
               align={'center'}
@@ -47,13 +51,19 @@ export default function SectionJourney() {
               </Text>
             </Stack>
 
-            <Grid
+            <Grid as={motion.ul}
+              variants={ParentListAnimate}
+              initial="hidden"
+              whileInView="show"
               gridTemplateColumns={'repeat(3, 1fr)'}
               gap={10}
               w={'full'}
             >
               {journey.map((item, index) => (
                 <GridItem key={index}
+                  as={motion.li}
+                  listStyleType={'none'}
+                  variants={ChildListAnimate}
                   colSpan={{ base: 3, md: 1 }}
                   bg={'teal.500'}
                   p={10}

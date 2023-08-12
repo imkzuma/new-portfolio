@@ -1,5 +1,7 @@
 import { CustomContainer } from "@/components/custom";
 import { Card, CardBody, Container, Flex, Grid, GridItem, Heading, Image, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import { ParentListAnimate, ChildListAnimate } from "@/components/animation/ListTypeAnimate";
 
 const technology = [
   {
@@ -60,7 +62,9 @@ export default function SectionTechnology() {
           py={{ base: 20 }}
         >
           <Stack align={'center'} spacing={'50px'}>
-            <Stack
+            <Stack as={motion.div}
+              initial={{ opacity: 0, y: -100 }}
+              whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, type: "ease" } }}
               spacing={2}
               w={{ base: 'full', lg: '1140px' }}
               align={'center'}
@@ -83,12 +87,18 @@ export default function SectionTechnology() {
               </Text>
             </Stack>
 
-            <Grid
+            <Grid as={motion.ul}
+              variants={ParentListAnimate}
+              initial="hidden"
+              whileInView="show"
               gridTemplateColumns={'repeat(3, 1fr)'}
               gap={10}
             >
               {technology.map((tech, index) => (
                 <GridItem key={index}
+                  as={motion.li}
+                  listStyleType={'none'}
+                  variants={ChildListAnimate}
                   colSpan={{ base: 3, lg: 1 }}
                 >
                   <Card
