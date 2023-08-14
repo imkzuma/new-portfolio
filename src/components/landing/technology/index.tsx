@@ -92,7 +92,7 @@ export default function SectionTechnology() {
               initial="hidden"
               whileInView="show"
               gridTemplateColumns={'repeat(3, 1fr)'}
-              gap={10}
+              gap={{ base: 8, lg: 7, xl: 10 }}
             >
               {technology.map((tech, index) => (
                 <GridItem key={index}

@@ -1,8 +1,9 @@
-import { Button, Divider, Flex, Icon, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { ReactNode } from "react";
-import { CustomContainer } from "../custom";
-import { LogoFull } from "../logo";
-import { links } from "../navbar";
+import { Divider, Flex, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+
+import { CustomContainer } from "@/components/custom";
+import { LogoFull } from "@/components/logo";
+import { links } from "@/components/navbar";
 
 const FooterLink = ({ children, href }: { children: ReactNode, href: string }) => {
   return (
@@ -25,8 +26,7 @@ const FooterLink = ({ children, href }: { children: ReactNode, href: string }) =
 }
 
 export default function ContentFooter() {
-  const date = new Date();
-  const year = date.getFullYear();
+  const year = new Date().getFullYear();
 
   return (
     <CustomContainer>

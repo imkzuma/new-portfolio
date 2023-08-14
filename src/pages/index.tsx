@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { Box, useColorModeValue } from '@chakra-ui/react';
+
 import MainLayout from '@/layouts/MainLayout';
 import LandingHero from '@/components/landing/hero';
 import SectionTechnology from '@/components/landing/technology';
@@ -21,8 +23,12 @@ export default function Home() {
         <SectionTechnology />
         <SectionProjects />
         <SectionJourney />
-        <SectionHire />
-      </MainLayout>
+
+        <Box w={'full'} bg={useColorModeValue('none', 'gray.900')}>
+          <SectionHire />
+        </Box>
+
+      </MainLayout >
     </>
   )
 }
