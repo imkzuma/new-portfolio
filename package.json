@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "rm -rf ./build && NODE ENV=production next build",
+    "start": "next start -p 3000",
+    "deploy": "npm run build && gcloud app deploy --quiet",
     "lint": "next lint"
   },
   "dependencies": {
