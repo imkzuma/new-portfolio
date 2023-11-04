@@ -1,2 +1,4 @@
 # Next.js source code
+.git
 /src/
+node_modules
